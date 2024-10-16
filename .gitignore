@@ -1,0 +1,7 @@
+**/service.zip
+**/gcp_credentials.json
+**/credentials.json
+**/__pycache__
+**/.terraform
+**/.terraform.lock.hcl
+.DS_Store
