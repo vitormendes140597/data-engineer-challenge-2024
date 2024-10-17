@@ -46,7 +46,7 @@ class BigQueryService:
             f'WHERE ingestion_id = "{ingestion_id}"'
         )
 
-        query_job = self.__client.query(query)
+        query_job = self.__client.query(query, job_config=bigquery.QueryJobConfig(use_query_cache=False))
         rows = query_job.result()
 
         for row in rows:

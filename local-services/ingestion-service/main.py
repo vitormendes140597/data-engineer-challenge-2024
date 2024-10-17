@@ -151,7 +151,7 @@ def ingest_csv_files(request: Request, directory: str):
 
     formatter = DataFormatter()
     file_handler = FileHandler(dir=directory)
-    file_has_header = bool(int(request.headers.get("has_header")))
+    file_has_header = bool(int(request.headers.get("has_header") or 0))
 
     files = list(file_handler.list_files())
 

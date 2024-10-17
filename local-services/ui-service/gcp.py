@@ -67,6 +67,9 @@ class BigQueryService:
             """
 
         query_job = self.__client.query(query)
-        rows = query_job.result()
+        rows = [
+            {"count_of_trips": row.count_of_trips, "time":row.time}
+            for row in query_job.result()
+        ]
 
-        return list(rows)
+        return rows
