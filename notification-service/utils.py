@@ -142,7 +142,8 @@ class SlackService:
             channel (str): The Slack channel to which messages will be sent.
         """
 
-        self.webook = webhook
+        # Store the Slack incoming webhook URL
+        self.webhook = webhook
         self.channel = channel
 
     def send(self, msg: str) -> None:
@@ -172,5 +173,5 @@ class SlackService:
 
         headers = {"content-type": "application/json"}
         requests.post(
-            self.webook, headers=headers, data=json.dumps(payload), timeout=60
+            self.webhook, headers=headers, data=json.dumps(payload), timeout=60
         )
